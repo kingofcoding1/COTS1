@@ -1,0 +1,442 @@
+
+BL_LCD.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000006c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000027a  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  0000027a  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000002a9  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000b8  00000000  00000000  000002b7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000148b  00000000  00000000  0000036f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000775  00000000  00000000  000017fa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000060d  00000000  00000000  00001f6f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000180  00000000  00000000  0000257c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001f6  00000000  00000000  000026fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000755  00000000  00000000  000028f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000088  00000000  00000000  00003047  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  000001f8  000001f8  0000026c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000030d0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.HLCD_vSendData 00000068  0000006e  0000006e  000000e2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.HLCD_vSendCommand 00000068  000000d6  000000d6  0000014a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.HLCD_vInit 00000068  0000013e  0000013e  000001b2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .progmemx.data 00000002  0000006c  0000006c  000000e0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEMX
+ 18 .text.main    00000018  000001c2  000001c2  00000236  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.UART_Recieve 00000008  000001f0  000001f0  00000264  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.UART_INIT 0000001c  000001a6  000001a6  0000021a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.__dummy_fini 00000002  00000200  00000200  00000274  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.__dummy_funcs_on_exit 00000002  00000202  00000202  00000276  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.__dummy_simulator_exit 00000002  00000204  00000204  00000278  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.exit    00000016  000001da  000001da  0000024e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text._Exit   00000004  000001fc  000001fc  00000270  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+   8:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+   c:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  10:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  14:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  18:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  1c:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  20:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  24:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  28:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  2c:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  30:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  34:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  38:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  3c:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  40:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  44:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  48:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  4c:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+  50:	0c 94 fc 00 	jmp	0x1f8	; 0x1f8 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <main>
+  64:	0c 94 ed 00 	jmp	0x1da	; 0x1da <exit>
+
+00000068 <_exit>:
+  68:	f8 94       	cli
+
+0000006a <__stop_program>:
+  6a:	ff cf       	rjmp	.-2      	; 0x6a <__stop_program>
+
+Disassembly of section .text:
+
+000001f8 <__bad_interrupt>:
+ 1f8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text.HLCD_vSendData:
+
+0000006e <HLCD_vSendData>:
+#include "LCD_interface.h"
+
+
+void HLCD_vSendData(u8 LCD_Data){
+	/*Send High Nipple*/
+	LCD_DATA_PORT =(LCD_DATA_PORT & 0x0f) | (LCD_Data & 0xf0);
+  6e:	9b b3       	in	r25, 0x1b	; 27
+  70:	9f 70       	andi	r25, 0x0F	; 15
+  72:	28 2f       	mov	r18, r24
+  74:	20 7f       	andi	r18, 0xF0	; 240
+  76:	92 2b       	or	r25, r18
+  78:	9b bb       	out	0x1b, r25	; 27
+	SET_BIT(LCD_CONTROL_PORT,LCD_RS);
+  7a:	98 b3       	in	r25, 0x18	; 24
+  7c:	92 60       	ori	r25, 0x02	; 2
+  7e:	98 bb       	out	0x18, r25	; 24
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_RW);
+  80:	98 b3       	in	r25, 0x18	; 24
+  82:	9b 7f       	andi	r25, 0xFB	; 251
+  84:	98 bb       	out	0x18, r25	; 24
+	SET_BIT(LCD_CONTROL_PORT,LCD_E);
+  86:	98 b3       	in	r25, 0x18	; 24
+  88:	98 60       	ori	r25, 0x08	; 8
+  8a:	98 bb       	out	0x18, r25	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  8c:	ef e9       	ldi	r30, 0x9F	; 159
+  8e:	ff e0       	ldi	r31, 0x0F	; 15
+  90:	31 97       	sbiw	r30, 0x01	; 1
+  92:	f1 f7       	brne	.-4      	; 0x90 <HLCD_vSendData+0x22>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <HLCD_vSendData+0x28>
+  96:	00 00       	nop
+	_delay_ms(1);
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_E);
+  98:	98 b3       	in	r25, 0x18	; 24
+  9a:	97 7f       	andi	r25, 0xF7	; 247
+  9c:	98 bb       	out	0x18, r25	; 24
+	
+	LCD_DATA_PORT =(LCD_DATA_PORT & 0x0f) | (LCD_Data << 4);
+  9e:	2b b3       	in	r18, 0x1b	; 27
+  a0:	f0 e1       	ldi	r31, 0x10	; 16
+  a2:	8f 9f       	mul	r24, r31
+  a4:	c0 01       	movw	r24, r0
+  a6:	11 24       	eor	r1, r1
+  a8:	92 2f       	mov	r25, r18
+  aa:	9f 70       	andi	r25, 0x0F	; 15
+  ac:	89 2b       	or	r24, r25
+  ae:	8b bb       	out	0x1b, r24	; 27
+	SET_BIT(LCD_CONTROL_PORT,LCD_RS);
+  b0:	88 b3       	in	r24, 0x18	; 24
+  b2:	82 60       	ori	r24, 0x02	; 2
+  b4:	88 bb       	out	0x18, r24	; 24
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_RW);
+  b6:	88 b3       	in	r24, 0x18	; 24
+  b8:	8b 7f       	andi	r24, 0xFB	; 251
+  ba:	88 bb       	out	0x18, r24	; 24
+	SET_BIT(LCD_CONTROL_PORT,LCD_E);
+  bc:	88 b3       	in	r24, 0x18	; 24
+  be:	88 60       	ori	r24, 0x08	; 8
+  c0:	88 bb       	out	0x18, r24	; 24
+  c2:	8f e9       	ldi	r24, 0x9F	; 159
+  c4:	9f e0       	ldi	r25, 0x0F	; 15
+  c6:	01 97       	sbiw	r24, 0x01	; 1
+  c8:	f1 f7       	brne	.-4      	; 0xc6 <HLCD_vSendData+0x58>
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <HLCD_vSendData+0x5e>
+  cc:	00 00       	nop
+	_delay_ms(1);
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_E);
+  ce:	88 b3       	in	r24, 0x18	; 24
+  d0:	87 7f       	andi	r24, 0xF7	; 247
+  d2:	88 bb       	out	0x18, r24	; 24
+  d4:	08 95       	ret
+
+Disassembly of section .text.HLCD_vSendCommand:
+
+000000d6 <HLCD_vSendCommand>:
+}
+void HLCD_vSendCommand(u8 LCD_Command)
+{
+	/*Send High Nipple*/
+	LCD_DATA_PORT =(LCD_DATA_PORT & 0x0f) | (LCD_Command & 0xf0);
+  d6:	9b b3       	in	r25, 0x1b	; 27
+  d8:	9f 70       	andi	r25, 0x0F	; 15
+  da:	28 2f       	mov	r18, r24
+  dc:	20 7f       	andi	r18, 0xF0	; 240
+  de:	92 2b       	or	r25, r18
+  e0:	9b bb       	out	0x1b, r25	; 27
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_RS);
+  e2:	98 b3       	in	r25, 0x18	; 24
+  e4:	9d 7f       	andi	r25, 0xFD	; 253
+  e6:	98 bb       	out	0x18, r25	; 24
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_RW);
+  e8:	98 b3       	in	r25, 0x18	; 24
+  ea:	9b 7f       	andi	r25, 0xFB	; 251
+  ec:	98 bb       	out	0x18, r25	; 24
+	SET_BIT(LCD_CONTROL_PORT,LCD_E);
+  ee:	98 b3       	in	r25, 0x18	; 24
+  f0:	98 60       	ori	r25, 0x08	; 8
+  f2:	98 bb       	out	0x18, r25	; 24
+  f4:	ef e9       	ldi	r30, 0x9F	; 159
+  f6:	ff e0       	ldi	r31, 0x0F	; 15
+  f8:	31 97       	sbiw	r30, 0x01	; 1
+  fa:	f1 f7       	brne	.-4      	; 0xf8 <HLCD_vSendCommand+0x22>
+  fc:	00 c0       	rjmp	.+0      	; 0xfe <HLCD_vSendCommand+0x28>
+  fe:	00 00       	nop
+	_delay_ms(1);
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_E);
+ 100:	98 b3       	in	r25, 0x18	; 24
+ 102:	97 7f       	andi	r25, 0xF7	; 247
+ 104:	98 bb       	out	0x18, r25	; 24
+	
+	LCD_DATA_PORT =(LCD_DATA_PORT & 0x0f) | (LCD_Command << 4);
+ 106:	2b b3       	in	r18, 0x1b	; 27
+ 108:	f0 e1       	ldi	r31, 0x10	; 16
+ 10a:	8f 9f       	mul	r24, r31
+ 10c:	c0 01       	movw	r24, r0
+ 10e:	11 24       	eor	r1, r1
+ 110:	92 2f       	mov	r25, r18
+ 112:	9f 70       	andi	r25, 0x0F	; 15
+ 114:	89 2b       	or	r24, r25
+ 116:	8b bb       	out	0x1b, r24	; 27
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_RS);
+ 118:	88 b3       	in	r24, 0x18	; 24
+ 11a:	8d 7f       	andi	r24, 0xFD	; 253
+ 11c:	88 bb       	out	0x18, r24	; 24
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_RW);
+ 11e:	88 b3       	in	r24, 0x18	; 24
+ 120:	8b 7f       	andi	r24, 0xFB	; 251
+ 122:	88 bb       	out	0x18, r24	; 24
+	SET_BIT(LCD_CONTROL_PORT,LCD_E);
+ 124:	88 b3       	in	r24, 0x18	; 24
+ 126:	88 60       	ori	r24, 0x08	; 8
+ 128:	88 bb       	out	0x18, r24	; 24
+ 12a:	8f e9       	ldi	r24, 0x9F	; 159
+ 12c:	9f e0       	ldi	r25, 0x0F	; 15
+ 12e:	01 97       	sbiw	r24, 0x01	; 1
+ 130:	f1 f7       	brne	.-4      	; 0x12e <HLCD_vSendCommand+0x58>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <HLCD_vSendCommand+0x5e>
+ 134:	00 00       	nop
+	_delay_ms(1);
+	CLEAR_BIT(LCD_CONTROL_PORT,LCD_E);
+ 136:	88 b3       	in	r24, 0x18	; 24
+ 138:	87 7f       	andi	r24, 0xF7	; 247
+ 13a:	88 bb       	out	0x18, r24	; 24
+ 13c:	08 95       	ret
+
+Disassembly of section .text.HLCD_vInit:
+
+0000013e <HLCD_vInit>:
+ 13e:	2f ef       	ldi	r18, 0xFF	; 255
+ 140:	83 ef       	ldi	r24, 0xF3	; 243
+ 142:	91 e0       	ldi	r25, 0x01	; 1
+ 144:	21 50       	subi	r18, 0x01	; 1
+ 146:	80 40       	sbci	r24, 0x00	; 0
+ 148:	90 40       	sbci	r25, 0x00	; 0
+ 14a:	e1 f7       	brne	.-8      	; 0x144 <HLCD_vInit+0x6>
+ 14c:	00 c0       	rjmp	.+0      	; 0x14e <HLCD_vInit+0x10>
+ 14e:	00 00       	nop
+}
+
+void HLCD_vInit(void)
+{
+	_delay_ms(40);
+	HLCD_vSendCommand(0x28); // Function Set
+ 150:	88 e2       	ldi	r24, 0x28	; 40
+ 152:	0e 94 6b 00 	call	0xd6	; 0xd6 <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 156:	25 ed       	ldi	r18, 0xD5	; 213
+ 158:	2a 95       	dec	r18
+ 15a:	f1 f7       	brne	.-4      	; 0x158 <HLCD_vInit+0x1a>
+ 15c:	00 00       	nop
+	_delay_us(40);
+	HLCD_vSendCommand(0x02); // Return Home
+ 15e:	82 e0       	ldi	r24, 0x02	; 2
+ 160:	0e 94 6b 00 	call	0xd6	; 0xd6 <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 164:	8f e3       	ldi	r24, 0x3F	; 63
+ 166:	9f e1       	ldi	r25, 0x1F	; 31
+ 168:	01 97       	sbiw	r24, 0x01	; 1
+ 16a:	f1 f7       	brne	.-4      	; 0x168 <HLCD_vInit+0x2a>
+ 16c:	00 c0       	rjmp	.+0      	; 0x16e <HLCD_vInit+0x30>
+ 16e:	00 00       	nop
+	_delay_ms(2);
+	HLCD_vSendCommand(0x06); // Entry Mode
+ 170:	86 e0       	ldi	r24, 0x06	; 6
+ 172:	0e 94 6b 00 	call	0xd6	; 0xd6 <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 176:	95 ed       	ldi	r25, 0xD5	; 213
+ 178:	9a 95       	dec	r25
+ 17a:	f1 f7       	brne	.-4      	; 0x178 <HLCD_vInit+0x3a>
+ 17c:	00 00       	nop
+	_delay_us(40);
+	HLCD_vSendCommand(0x0f); // Display on
+ 17e:	8f e0       	ldi	r24, 0x0F	; 15
+ 180:	0e 94 6b 00 	call	0xd6	; 0xd6 <HLCD_vSendCommand>
+	HLCD_vSendCommand(0x14); // Courser to the Right
+ 184:	84 e1       	ldi	r24, 0x14	; 20
+ 186:	0e 94 6b 00 	call	0xd6	; 0xd6 <HLCD_vSendCommand>
+ 18a:	25 ed       	ldi	r18, 0xD5	; 213
+ 18c:	2a 95       	dec	r18
+ 18e:	f1 f7       	brne	.-4      	; 0x18c <HLCD_vInit+0x4e>
+ 190:	00 00       	nop
+	_delay_us(40);
+	HLCD_vSendCommand(0x01); // CLear Display
+ 192:	81 e0       	ldi	r24, 0x01	; 1
+ 194:	0e 94 6b 00 	call	0xd6	; 0xd6 <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 198:	8f e3       	ldi	r24, 0x3F	; 63
+ 19a:	9f e1       	ldi	r25, 0x1F	; 31
+ 19c:	01 97       	sbiw	r24, 0x01	; 1
+ 19e:	f1 f7       	brne	.-4      	; 0x19c <HLCD_vInit+0x5e>
+ 1a0:	00 c0       	rjmp	.+0      	; 0x1a2 <HLCD_vInit+0x64>
+ 1a2:	00 00       	nop
+ 1a4:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000001c2 <main>:
+#include "USART_PRIV.h"
+#include "USART_CONFG.h"
+
+int main(void)
+{
+		HLCD_vInit();
+ 1c2:	0e 94 9f 00 	call	0x13e	; 0x13e <HLCD_vInit>
+	    UART_INIT();
+ 1c6:	0e 94 d3 00 	call	0x1a6	; 0x1a6 <UART_INIT>
+	    u8 Rec_data = 0;
+	HLCD_vSendData("A");
+ 1ca:	8c e6       	ldi	r24, 0x6C	; 108
+ 1cc:	90 e0       	ldi	r25, 0x00	; 0
+ 1ce:	a0 e0       	ldi	r26, 0x00	; 0
+ 1d0:	0e 94 37 00 	call	0x6e	; 0x6e <HLCD_vSendData>
+    while(1)
+    {
+		Rec_data = UART_Recieve();
+ 1d4:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <UART_Recieve>
+ 1d8:	fd cf       	rjmp	.-6      	; 0x1d4 <main+0x12>
+
+Disassembly of section .text.UART_Recieve:
+
+000001f0 <UART_Recieve>:
+}
+
+u8 UART_Recieve(void)
+{
+	
+	while(GET_BIT(UART_UCSRA,7)==0);	
+ 1f0:	5f 9b       	sbis	0x0b, 7	; 11
+ 1f2:	fe cf       	rjmp	.-4      	; 0x1f0 <UART_Recieve>
+	return UART_UDR;
+ 1f4:	8c b1       	in	r24, 0x0c	; 12
+	
+
+}
+ 1f6:	08 95       	ret
+
+Disassembly of section .text.UART_INIT:
+
+000001a6 <UART_INIT>:
+
+void UART_Transmit(u8 Data)
+{
+	
+while(GET_BIT(UART_UCSRA,5)==0);	
+UART_UDR = Data;
+ 1a6:	8a b1       	in	r24, 0x0a	; 10
+ 1a8:	8b 7f       	andi	r24, 0xFB	; 251
+ 1aa:	8a b9       	out	0x0a, r24	; 10
+ 1ac:	83 e8       	ldi	r24, 0x83	; 131
+ 1ae:	80 bd       	out	0x20, r24	; 32
+ 1b0:	8a b1       	in	r24, 0x0a	; 10
+ 1b2:	88 60       	ori	r24, 0x08	; 8
+ 1b4:	8a b9       	out	0x0a, r24	; 10
+ 1b6:	8a b1       	in	r24, 0x0a	; 10
+ 1b8:	80 61       	ori	r24, 0x10	; 16
+ 1ba:	8a b9       	out	0x0a, r24	; 10
+ 1bc:	87 e6       	ldi	r24, 0x67	; 103
+ 1be:	89 b9       	out	0x09, r24	; 9
+ 1c0:	08 95       	ret
+
+Disassembly of section .text.__dummy_fini:
+
+00000200 <_fini>:
+ 200:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000202 <__funcs_on_exit>:
+ 202:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00000204 <__simulator_exit>:
+ 204:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+000001da <exit>:
+ 1da:	ec 01       	movw	r28, r24
+ 1dc:	0e 94 01 01 	call	0x202	; 0x202 <__funcs_on_exit>
+ 1e0:	0e 94 00 01 	call	0x200	; 0x200 <_fini>
+ 1e4:	ce 01       	movw	r24, r28
+ 1e6:	0e 94 02 01 	call	0x204	; 0x204 <__simulator_exit>
+ 1ea:	ce 01       	movw	r24, r28
+ 1ec:	0e 94 fe 00 	call	0x1fc	; 0x1fc <_Exit>
+
+Disassembly of section .text._Exit:
+
+000001fc <_Exit>:
+ 1fc:	0e 94 34 00 	call	0x68	; 0x68 <_exit>

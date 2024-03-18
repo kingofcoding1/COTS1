@@ -1,0 +1,604 @@
+
+SHOW_KEYPAD.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00000368  000003fc  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000003fc  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  0000042b  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000a0  00000000  00000000  00000439  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000147e  00000000  00000000  000004d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000078d  00000000  00000000  00001957  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000005d9  00000000  00000000  000020e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000158  00000000  00000000  000026c0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001ef  00000000  00000000  00002818  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000700  00000000  00000000  00002a07  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000070  00000000  00000000  00003107  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000034a  0000034a  000003de  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00003178  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .rodata       00000010  00800060  00000358  000003ec  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 15 .text.HKEYPAD_vGetKey 00000114  000000b0  000000b0  00000144  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.HLCD_vSendData 00000068  000001c4  000001c4  00000258  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.HLCD_vSendCommand 00000068  0000022c  0000022c  000002c0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.HLCD_vInit 00000068  00000294  00000294  00000328  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.main    00000038  000002fc  000002fc  00000390  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.__dummy_fini 00000002  00000352  00000352  000003e6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.__dummy_funcs_on_exit 00000002  00000354  00000354  000003e8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.__dummy_simulator_exit 00000002  00000356  00000356  000003ea  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.exit    00000016  00000334  00000334  000003c8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text._Exit   00000004  0000034e  0000034e  000003e2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2e 00 	jmp	0x5c	; 0x5c <__ctors_end>
+   4:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+   8:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+   c:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  10:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  14:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  18:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  1c:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  20:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  24:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  28:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  2c:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  30:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  34:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  38:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  3c:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  40:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  44:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  48:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  4c:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+  50:	0c 94 a5 01 	jmp	0x34a	; 0x34a <__bad_interrupt>
+
+00000054 <.dinit>:
+  54:	00 60       	ori	r16, 0x00	; 0
+  56:	00 70       	andi	r16, 0x00	; 0
+  58:	00 03       	mulsu	r16, r16
+  5a:	58 00       	.word	0x0058	; ????
+
+0000005c <__ctors_end>:
+  5c:	11 24       	eor	r1, r1
+  5e:	1f be       	out	0x3f, r1	; 63
+  60:	cf e5       	ldi	r28, 0x5F	; 95
+  62:	d8 e0       	ldi	r29, 0x08	; 8
+  64:	de bf       	out	0x3e, r29	; 62
+  66:	cd bf       	out	0x3d, r28	; 61
+
+00000068 <__do_copy_data>:
+  68:	e4 e5       	ldi	r30, 0x54	; 84
+  6a:	f0 e0       	ldi	r31, 0x00	; 0
+  6c:	40 e0       	ldi	r20, 0x00	; 0
+  6e:	17 c0       	rjmp	.+46     	; 0x9e <__do_clear_bss+0x8>
+  70:	b5 91       	lpm	r27, Z+
+  72:	a5 91       	lpm	r26, Z+
+  74:	35 91       	lpm	r19, Z+
+  76:	25 91       	lpm	r18, Z+
+  78:	05 91       	lpm	r16, Z+
+  7a:	07 fd       	sbrc	r16, 7
+  7c:	0c c0       	rjmp	.+24     	; 0x96 <__do_clear_bss>
+  7e:	95 91       	lpm	r25, Z+
+  80:	85 91       	lpm	r24, Z+
+  82:	ef 01       	movw	r28, r30
+  84:	f9 2f       	mov	r31, r25
+  86:	e8 2f       	mov	r30, r24
+  88:	05 90       	lpm	r0, Z+
+  8a:	0d 92       	st	X+, r0
+  8c:	a2 17       	cp	r26, r18
+  8e:	b3 07       	cpc	r27, r19
+  90:	d9 f7       	brne	.-10     	; 0x88 <__do_copy_data+0x20>
+  92:	fe 01       	movw	r30, r28
+  94:	04 c0       	rjmp	.+8      	; 0x9e <__do_clear_bss+0x8>
+
+00000096 <__do_clear_bss>:
+  96:	1d 92       	st	X+, r1
+  98:	a2 17       	cp	r26, r18
+  9a:	b3 07       	cpc	r27, r19
+  9c:	e1 f7       	brne	.-8      	; 0x96 <__do_clear_bss>
+  9e:	eb 35       	cpi	r30, 0x5B	; 91
+  a0:	f4 07       	cpc	r31, r20
+  a2:	31 f7       	brne	.-52     	; 0x70 <__do_copy_data+0x8>
+  a4:	0e 94 7e 01 	call	0x2fc	; 0x2fc <main>
+  a8:	0c 94 9a 01 	jmp	0x334	; 0x334 <exit>
+
+000000ac <_exit>:
+  ac:	f8 94       	cli
+
+000000ae <__stop_program>:
+  ae:	ff cf       	rjmp	.-2      	; 0xae <__stop_program>
+
+Disassembly of section .text:
+
+0000034a <__bad_interrupt>:
+ 34a:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text.HKEYPAD_vGetKey:
+
+000000b0 <HKEYPAD_vGetKey>:
+	}
+	
+}*/
+
+void HKEYPAD_vGetKey(u8 value[])
+{
+  b0:	cf 93       	push	r28
+  b2:	df 93       	push	r29
+  b4:	cd b7       	in	r28, 0x3d	; 61
+  b6:	de b7       	in	r29, 0x3e	; 62
+  b8:	68 97       	sbiw	r28, 0x18	; 24
+  ba:	0f b6       	in	r0, 0x3f	; 63
+  bc:	f8 94       	cli
+  be:	de bf       	out	0x3e, r29	; 62
+  c0:	0f be       	out	0x3f, r0	; 63
+  c2:	cd bf       	out	0x3d, r28	; 61
+	u8 Keypad[4][4]	= KEYPAD_VALUES;
+  c4:	20 e1       	ldi	r18, 0x10	; 16
+  c6:	e0 e6       	ldi	r30, 0x60	; 96
+  c8:	f0 e0       	ldi	r31, 0x00	; 0
+  ca:	de 01       	movw	r26, r28
+  cc:	11 96       	adiw	r26, 0x01	; 1
+  ce:	01 90       	ld	r0, Z+
+  d0:	0d 92       	st	X+, r0
+  d2:	2a 95       	dec	r18
+  d4:	e1 f7       	brne	.-8      	; 0xce <HKEYPAD_vGetKey+0x1e>
+	u8 Colomns[4]	= COLOMNS_PIN_VALUES;
+  d6:	24 e0       	ldi	r18, 0x04	; 4
+  d8:	29 8b       	std	Y+17, r18	; 0x11
+  da:	25 e0       	ldi	r18, 0x05	; 5
+  dc:	2a 8b       	std	Y+18, r18	; 0x12
+  de:	26 e0       	ldi	r18, 0x06	; 6
+  e0:	2b 8b       	std	Y+19, r18	; 0x13
+  e2:	27 e0       	ldi	r18, 0x07	; 7
+  e4:	2c 8b       	std	Y+20, r18	; 0x14
+	u8 Rows[4]		= ROWS_PIN_VALUES;
+  e6:	1d 8a       	std	Y+21, r1	; 0x15
+  e8:	21 e0       	ldi	r18, 0x01	; 1
+  ea:	2e 8b       	std	Y+22, r18	; 0x16
+  ec:	22 e0       	ldi	r18, 0x02	; 2
+  ee:	2f 8b       	std	Y+23, r18	; 0x17
+  f0:	23 e0       	ldi	r18, 0x03	; 3
+  f2:	28 8f       	std	Y+24, r18	; 0x18
+	for (int i = 0; i < COLUMN_NUMBER;i++)
+  f4:	a0 e0       	ldi	r26, 0x00	; 0
+  f6:	b0 e0       	ldi	r27, 0x00	; 0
+  f8:	58 c0       	rjmp	.+176    	; 0x1aa <HKEYPAD_vGetKey+0xfa>
+	{
+		CLEAR_BIT(Keypad_PORT,Colomns[i]);
+  fa:	45 b3       	in	r20, 0x15	; 21
+  fc:	e1 e1       	ldi	r30, 0x11	; 17
+  fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 100:	ec 0f       	add	r30, r28
+ 102:	fd 1f       	adc	r31, r29
+ 104:	ea 0f       	add	r30, r26
+ 106:	fb 1f       	adc	r31, r27
+ 108:	21 e0       	ldi	r18, 0x01	; 1
+ 10a:	30 e0       	ldi	r19, 0x00	; 0
+ 10c:	00 80       	ld	r0, Z
+ 10e:	02 c0       	rjmp	.+4      	; 0x114 <HKEYPAD_vGetKey+0x64>
+ 110:	22 0f       	add	r18, r18
+ 112:	33 1f       	adc	r19, r19
+ 114:	0a 94       	dec	r0
+ 116:	e2 f7       	brpl	.-8      	; 0x110 <HKEYPAD_vGetKey+0x60>
+ 118:	20 95       	com	r18
+ 11a:	24 23       	and	r18, r20
+ 11c:	25 bb       	out	0x15, r18	; 21
+		for (int j = 0; j < ROW_NUMBER;j++)
+ 11e:	40 e0       	ldi	r20, 0x00	; 0
+ 120:	50 e0       	ldi	r21, 0x00	; 0
+ 122:	2e c0       	rjmp	.+92     	; 0x180 <HKEYPAD_vGetKey+0xd0>
+		{
+			if(GET_BIT(Keypad_PIN,Rows[j]) == 0)
+ 124:	23 b3       	in	r18, 0x13	; 19
+ 126:	e5 e1       	ldi	r30, 0x15	; 21
+ 128:	f0 e0       	ldi	r31, 0x00	; 0
+ 12a:	ec 0f       	add	r30, r28
+ 12c:	fd 1f       	adc	r31, r29
+ 12e:	e4 0f       	add	r30, r20
+ 130:	f5 1f       	adc	r31, r21
+ 132:	e0 81       	ld	r30, Z
+ 134:	6e 2f       	mov	r22, r30
+ 136:	30 e0       	ldi	r19, 0x00	; 0
+ 138:	02 c0       	rjmp	.+4      	; 0x13e <HKEYPAD_vGetKey+0x8e>
+ 13a:	35 95       	asr	r19
+ 13c:	27 95       	ror	r18
+ 13e:	ea 95       	dec	r30
+ 140:	e2 f7       	brpl	.-8      	; 0x13a <HKEYPAD_vGetKey+0x8a>
+ 142:	20 ff       	sbrs	r18, 0
+ 144:	11 c0       	rjmp	.+34     	; 0x168 <HKEYPAD_vGetKey+0xb8>
+ 146:	1a c0       	rjmp	.+52     	; 0x17c <HKEYPAD_vGetKey+0xcc>
+			{
+ 			    while (GET_BIT(Keypad_PIN,Rows[j]) == 0)
+				 {
+					 *value = Keypad[j][i];
+ 148:	fa 01       	movw	r30, r20
+ 14a:	ee 0f       	add	r30, r30
+ 14c:	ff 1f       	adc	r31, r31
+ 14e:	ee 0f       	add	r30, r30
+ 150:	ff 1f       	adc	r31, r31
+ 152:	21 e0       	ldi	r18, 0x01	; 1
+ 154:	30 e0       	ldi	r19, 0x00	; 0
+ 156:	2c 0f       	add	r18, r28
+ 158:	3d 1f       	adc	r19, r29
+ 15a:	e2 0f       	add	r30, r18
+ 15c:	f3 1f       	adc	r31, r19
+ 15e:	ea 0f       	add	r30, r26
+ 160:	fb 1f       	adc	r31, r27
+ 162:	20 81       	ld	r18, Z
+ 164:	fc 01       	movw	r30, r24
+ 166:	20 83       	st	Z, r18
+		CLEAR_BIT(Keypad_PORT,Colomns[i]);
+		for (int j = 0; j < ROW_NUMBER;j++)
+		{
+			if(GET_BIT(Keypad_PIN,Rows[j]) == 0)
+			{
+ 			    while (GET_BIT(Keypad_PIN,Rows[j]) == 0)
+ 168:	23 b3       	in	r18, 0x13	; 19
+ 16a:	30 e0       	ldi	r19, 0x00	; 0
+ 16c:	06 2e       	mov	r0, r22
+ 16e:	02 c0       	rjmp	.+4      	; 0x174 <HKEYPAD_vGetKey+0xc4>
+ 170:	35 95       	asr	r19
+ 172:	27 95       	ror	r18
+ 174:	0a 94       	dec	r0
+ 176:	e2 f7       	brpl	.-8      	; 0x170 <HKEYPAD_vGetKey+0xc0>
+ 178:	20 ff       	sbrs	r18, 0
+ 17a:	e6 cf       	rjmp	.-52     	; 0x148 <HKEYPAD_vGetKey+0x98>
+	u8 Colomns[4]	= COLOMNS_PIN_VALUES;
+	u8 Rows[4]		= ROWS_PIN_VALUES;
+	for (int i = 0; i < COLUMN_NUMBER;i++)
+	{
+		CLEAR_BIT(Keypad_PORT,Colomns[i]);
+		for (int j = 0; j < ROW_NUMBER;j++)
+ 17c:	4f 5f       	subi	r20, 0xFF	; 255
+ 17e:	5f 4f       	sbci	r21, 0xFF	; 255
+ 180:	44 30       	cpi	r20, 0x04	; 4
+ 182:	51 05       	cpc	r21, r1
+ 184:	7c f2       	brlt	.-98     	; 0x124 <HKEYPAD_vGetKey+0x74>
+				 {
+					 *value = Keypad[j][i];
+				 }
+			}
+		}
+		SET_BIT(Keypad_PORT,Colomns[i]);
+ 186:	45 b3       	in	r20, 0x15	; 21
+ 188:	e1 e1       	ldi	r30, 0x11	; 17
+ 18a:	f0 e0       	ldi	r31, 0x00	; 0
+ 18c:	ec 0f       	add	r30, r28
+ 18e:	fd 1f       	adc	r31, r29
+ 190:	ea 0f       	add	r30, r26
+ 192:	fb 1f       	adc	r31, r27
+ 194:	21 e0       	ldi	r18, 0x01	; 1
+ 196:	30 e0       	ldi	r19, 0x00	; 0
+ 198:	00 80       	ld	r0, Z
+ 19a:	02 c0       	rjmp	.+4      	; 0x1a0 <HKEYPAD_vGetKey+0xf0>
+ 19c:	22 0f       	add	r18, r18
+ 19e:	33 1f       	adc	r19, r19
+ 1a0:	0a 94       	dec	r0
+ 1a2:	e2 f7       	brpl	.-8      	; 0x19c <HKEYPAD_vGetKey+0xec>
+ 1a4:	24 2b       	or	r18, r20
+ 1a6:	25 bb       	out	0x15, r18	; 21
+void HKEYPAD_vGetKey(u8 value[])
+{
+	u8 Keypad[4][4]	= KEYPAD_VALUES;
+	u8 Colomns[4]	= COLOMNS_PIN_VALUES;
+	u8 Rows[4]		= ROWS_PIN_VALUES;
+	for (int i = 0; i < COLUMN_NUMBER;i++)
+ 1a8:	11 96       	adiw	r26, 0x01	; 1
+ 1aa:	a4 30       	cpi	r26, 0x04	; 4
+ 1ac:	b1 05       	cpc	r27, r1
+ 1ae:	0c f4       	brge	.+2      	; 0x1b2 <HKEYPAD_vGetKey+0x102>
+ 1b0:	a4 cf       	rjmp	.-184    	; 0xfa <HKEYPAD_vGetKey+0x4a>
+				 }
+			}
+		}
+		SET_BIT(Keypad_PORT,Colomns[i]);
+	}
+}
+ 1b2:	68 96       	adiw	r28, 0x18	; 24
+ 1b4:	0f b6       	in	r0, 0x3f	; 63
+ 1b6:	f8 94       	cli
+ 1b8:	de bf       	out	0x3e, r29	; 62
+ 1ba:	0f be       	out	0x3f, r0	; 63
+ 1bc:	cd bf       	out	0x3d, r28	; 61
+ 1be:	df 91       	pop	r29
+ 1c0:	cf 91       	pop	r28
+ 1c2:	08 95       	ret
+
+Disassembly of section .text.HLCD_vSendData:
+
+000001c4 <HLCD_vSendData>:
+ 1c4:	9b b3       	in	r25, 0x1b	; 27
+ 1c6:	9f 70       	andi	r25, 0x0F	; 15
+ 1c8:	28 2f       	mov	r18, r24
+ 1ca:	20 7f       	andi	r18, 0xF0	; 240
+ 1cc:	92 2b       	or	r25, r18
+ 1ce:	9b bb       	out	0x1b, r25	; 27
+ 1d0:	98 b3       	in	r25, 0x18	; 24
+ 1d2:	92 60       	ori	r25, 0x02	; 2
+ 1d4:	98 bb       	out	0x18, r25	; 24
+ 1d6:	98 b3       	in	r25, 0x18	; 24
+ 1d8:	9b 7f       	andi	r25, 0xFB	; 251
+ 1da:	98 bb       	out	0x18, r25	; 24
+ 1dc:	98 b3       	in	r25, 0x18	; 24
+ 1de:	98 60       	ori	r25, 0x08	; 8
+ 1e0:	98 bb       	out	0x18, r25	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1e2:	ef e9       	ldi	r30, 0x9F	; 159
+ 1e4:	ff e0       	ldi	r31, 0x0F	; 15
+ 1e6:	31 97       	sbiw	r30, 0x01	; 1
+ 1e8:	f1 f7       	brne	.-4      	; 0x1e6 <HLCD_vSendData+0x22>
+ 1ea:	00 c0       	rjmp	.+0      	; 0x1ec <HLCD_vSendData+0x28>
+ 1ec:	00 00       	nop
+ 1ee:	98 b3       	in	r25, 0x18	; 24
+ 1f0:	97 7f       	andi	r25, 0xF7	; 247
+ 1f2:	98 bb       	out	0x18, r25	; 24
+ 1f4:	2b b3       	in	r18, 0x1b	; 27
+ 1f6:	f0 e1       	ldi	r31, 0x10	; 16
+ 1f8:	8f 9f       	mul	r24, r31
+ 1fa:	c0 01       	movw	r24, r0
+ 1fc:	11 24       	eor	r1, r1
+ 1fe:	92 2f       	mov	r25, r18
+ 200:	9f 70       	andi	r25, 0x0F	; 15
+ 202:	89 2b       	or	r24, r25
+ 204:	8b bb       	out	0x1b, r24	; 27
+ 206:	88 b3       	in	r24, 0x18	; 24
+ 208:	82 60       	ori	r24, 0x02	; 2
+ 20a:	88 bb       	out	0x18, r24	; 24
+ 20c:	88 b3       	in	r24, 0x18	; 24
+ 20e:	8b 7f       	andi	r24, 0xFB	; 251
+ 210:	88 bb       	out	0x18, r24	; 24
+ 212:	88 b3       	in	r24, 0x18	; 24
+ 214:	88 60       	ori	r24, 0x08	; 8
+ 216:	88 bb       	out	0x18, r24	; 24
+ 218:	8f e9       	ldi	r24, 0x9F	; 159
+ 21a:	9f e0       	ldi	r25, 0x0F	; 15
+ 21c:	01 97       	sbiw	r24, 0x01	; 1
+ 21e:	f1 f7       	brne	.-4      	; 0x21c <HLCD_vSendData+0x58>
+ 220:	00 c0       	rjmp	.+0      	; 0x222 <HLCD_vSendData+0x5e>
+ 222:	00 00       	nop
+ 224:	88 b3       	in	r24, 0x18	; 24
+ 226:	87 7f       	andi	r24, 0xF7	; 247
+ 228:	88 bb       	out	0x18, r24	; 24
+ 22a:	08 95       	ret
+
+Disassembly of section .text.HLCD_vSendCommand:
+
+0000022c <HLCD_vSendCommand>:
+ 22c:	9b b3       	in	r25, 0x1b	; 27
+ 22e:	9f 70       	andi	r25, 0x0F	; 15
+ 230:	28 2f       	mov	r18, r24
+ 232:	20 7f       	andi	r18, 0xF0	; 240
+ 234:	92 2b       	or	r25, r18
+ 236:	9b bb       	out	0x1b, r25	; 27
+ 238:	98 b3       	in	r25, 0x18	; 24
+ 23a:	9d 7f       	andi	r25, 0xFD	; 253
+ 23c:	98 bb       	out	0x18, r25	; 24
+ 23e:	98 b3       	in	r25, 0x18	; 24
+ 240:	9b 7f       	andi	r25, 0xFB	; 251
+ 242:	98 bb       	out	0x18, r25	; 24
+ 244:	98 b3       	in	r25, 0x18	; 24
+ 246:	98 60       	ori	r25, 0x08	; 8
+ 248:	98 bb       	out	0x18, r25	; 24
+ 24a:	ef e9       	ldi	r30, 0x9F	; 159
+ 24c:	ff e0       	ldi	r31, 0x0F	; 15
+ 24e:	31 97       	sbiw	r30, 0x01	; 1
+ 250:	f1 f7       	brne	.-4      	; 0x24e <HLCD_vSendCommand+0x22>
+ 252:	00 c0       	rjmp	.+0      	; 0x254 <HLCD_vSendCommand+0x28>
+ 254:	00 00       	nop
+ 256:	98 b3       	in	r25, 0x18	; 24
+ 258:	97 7f       	andi	r25, 0xF7	; 247
+ 25a:	98 bb       	out	0x18, r25	; 24
+ 25c:	2b b3       	in	r18, 0x1b	; 27
+ 25e:	f0 e1       	ldi	r31, 0x10	; 16
+ 260:	8f 9f       	mul	r24, r31
+ 262:	c0 01       	movw	r24, r0
+ 264:	11 24       	eor	r1, r1
+ 266:	92 2f       	mov	r25, r18
+ 268:	9f 70       	andi	r25, 0x0F	; 15
+ 26a:	89 2b       	or	r24, r25
+ 26c:	8b bb       	out	0x1b, r24	; 27
+ 26e:	88 b3       	in	r24, 0x18	; 24
+ 270:	8d 7f       	andi	r24, 0xFD	; 253
+ 272:	88 bb       	out	0x18, r24	; 24
+ 274:	88 b3       	in	r24, 0x18	; 24
+ 276:	8b 7f       	andi	r24, 0xFB	; 251
+ 278:	88 bb       	out	0x18, r24	; 24
+ 27a:	88 b3       	in	r24, 0x18	; 24
+ 27c:	88 60       	ori	r24, 0x08	; 8
+ 27e:	88 bb       	out	0x18, r24	; 24
+ 280:	8f e9       	ldi	r24, 0x9F	; 159
+ 282:	9f e0       	ldi	r25, 0x0F	; 15
+ 284:	01 97       	sbiw	r24, 0x01	; 1
+ 286:	f1 f7       	brne	.-4      	; 0x284 <HLCD_vSendCommand+0x58>
+ 288:	00 c0       	rjmp	.+0      	; 0x28a <HLCD_vSendCommand+0x5e>
+ 28a:	00 00       	nop
+ 28c:	88 b3       	in	r24, 0x18	; 24
+ 28e:	87 7f       	andi	r24, 0xF7	; 247
+ 290:	88 bb       	out	0x18, r24	; 24
+ 292:	08 95       	ret
+
+Disassembly of section .text.HLCD_vInit:
+
+00000294 <HLCD_vInit>:
+ 294:	2f ef       	ldi	r18, 0xFF	; 255
+ 296:	83 ef       	ldi	r24, 0xF3	; 243
+ 298:	91 e0       	ldi	r25, 0x01	; 1
+ 29a:	21 50       	subi	r18, 0x01	; 1
+ 29c:	80 40       	sbci	r24, 0x00	; 0
+ 29e:	90 40       	sbci	r25, 0x00	; 0
+ 2a0:	e1 f7       	brne	.-8      	; 0x29a <HLCD_vInit+0x6>
+ 2a2:	00 c0       	rjmp	.+0      	; 0x2a4 <HLCD_vInit+0x10>
+ 2a4:	00 00       	nop
+ 2a6:	88 e2       	ldi	r24, 0x28	; 40
+ 2a8:	0e 94 16 01 	call	0x22c	; 0x22c <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2ac:	25 ed       	ldi	r18, 0xD5	; 213
+ 2ae:	2a 95       	dec	r18
+ 2b0:	f1 f7       	brne	.-4      	; 0x2ae <HLCD_vInit+0x1a>
+ 2b2:	00 00       	nop
+ 2b4:	82 e0       	ldi	r24, 0x02	; 2
+ 2b6:	0e 94 16 01 	call	0x22c	; 0x22c <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2ba:	8f e3       	ldi	r24, 0x3F	; 63
+ 2bc:	9f e1       	ldi	r25, 0x1F	; 31
+ 2be:	01 97       	sbiw	r24, 0x01	; 1
+ 2c0:	f1 f7       	brne	.-4      	; 0x2be <HLCD_vInit+0x2a>
+ 2c2:	00 c0       	rjmp	.+0      	; 0x2c4 <HLCD_vInit+0x30>
+ 2c4:	00 00       	nop
+ 2c6:	86 e0       	ldi	r24, 0x06	; 6
+ 2c8:	0e 94 16 01 	call	0x22c	; 0x22c <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2cc:	95 ed       	ldi	r25, 0xD5	; 213
+ 2ce:	9a 95       	dec	r25
+ 2d0:	f1 f7       	brne	.-4      	; 0x2ce <HLCD_vInit+0x3a>
+ 2d2:	00 00       	nop
+ 2d4:	8f e0       	ldi	r24, 0x0F	; 15
+ 2d6:	0e 94 16 01 	call	0x22c	; 0x22c <HLCD_vSendCommand>
+ 2da:	84 e1       	ldi	r24, 0x14	; 20
+ 2dc:	0e 94 16 01 	call	0x22c	; 0x22c <HLCD_vSendCommand>
+ 2e0:	25 ed       	ldi	r18, 0xD5	; 213
+ 2e2:	2a 95       	dec	r18
+ 2e4:	f1 f7       	brne	.-4      	; 0x2e2 <HLCD_vInit+0x4e>
+ 2e6:	00 00       	nop
+ 2e8:	81 e0       	ldi	r24, 0x01	; 1
+ 2ea:	0e 94 16 01 	call	0x22c	; 0x22c <HLCD_vSendCommand>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2ee:	8f e3       	ldi	r24, 0x3F	; 63
+ 2f0:	9f e1       	ldi	r25, 0x1F	; 31
+ 2f2:	01 97       	sbiw	r24, 0x01	; 1
+ 2f4:	f1 f7       	brne	.-4      	; 0x2f2 <HLCD_vInit+0x5e>
+ 2f6:	00 c0       	rjmp	.+0      	; 0x2f8 <HLCD_vInit+0x64>
+ 2f8:	00 00       	nop
+ 2fa:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000002fc <main>:
+#include "KEYPAD_private.h"
+#include "KEYPAD_config.h"
+#include "KEYPAD_interface.h"
+
+int main(void)
+{
+ 2fc:	cf 93       	push	r28
+ 2fe:	df 93       	push	r29
+ 300:	0f 92       	push	r0
+ 302:	cd b7       	in	r28, 0x3d	; 61
+ 304:	de b7       	in	r29, 0x3e	; 62
+	
+	DDRA = 0xff;
+ 306:	8f ef       	ldi	r24, 0xFF	; 255
+ 308:	8a bb       	out	0x1a, r24	; 26
+	DDRB = 0xff;
+ 30a:	87 bb       	out	0x17, r24	; 23
+	PORTC = 0xff; 
+ 30c:	85 bb       	out	0x15, r24	; 21
+	DDRC = 0x0f;
+ 30e:	8f e0       	ldi	r24, 0x0F	; 15
+ 310:	84 bb       	out	0x14, r24	; 20
+	
+	HLCD_vInit();
+ 312:	0e 94 4a 01 	call	0x294	; 0x294 <HLCD_vInit>
+	HLCD_vSendData('a');
+ 316:	81 e6       	ldi	r24, 0x61	; 97
+ 318:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <HLCD_vSendData>
+	/*HKEYPAD_vInit();*/
+	HLCD_vSendData('x');
+ 31c:	88 e7       	ldi	r24, 0x78	; 120
+ 31e:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <HLCD_vSendData>
+	u8 x = 0;
+ 322:	19 82       	std	Y+1, r1	; 0x01
+    while(1)
+    {
+
+			HKEYPAD_vGetKey(&x);
+ 324:	ce 01       	movw	r24, r28
+ 326:	01 96       	adiw	r24, 0x01	; 1
+ 328:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
+			HLCD_vSendData(x);
+ 32c:	89 81       	ldd	r24, Y+1	; 0x01
+ 32e:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <HLCD_vSendData>
+ 332:	f8 cf       	rjmp	.-16     	; 0x324 <main+0x28>
+
+Disassembly of section .text.__dummy_fini:
+
+00000352 <_fini>:
+ 352:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000354 <__funcs_on_exit>:
+ 354:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+00000356 <__simulator_exit>:
+ 356:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000334 <exit>:
+ 334:	ec 01       	movw	r28, r24
+ 336:	0e 94 aa 01 	call	0x354	; 0x354 <__funcs_on_exit>
+ 33a:	0e 94 a9 01 	call	0x352	; 0x352 <_fini>
+ 33e:	ce 01       	movw	r24, r28
+ 340:	0e 94 ab 01 	call	0x356	; 0x356 <__simulator_exit>
+ 344:	ce 01       	movw	r24, r28
+ 346:	0e 94 a7 01 	call	0x34e	; 0x34e <_Exit>
+
+Disassembly of section .text._Exit:
+
+0000034e <_Exit>:
+ 34e:	0e 94 56 00 	call	0xac	; 0xac <_exit>

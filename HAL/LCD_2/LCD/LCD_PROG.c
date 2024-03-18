@@ -1,0 +1,77 @@
+/*
+ * library.c
+ *
+ * Created: 2/10/2024 10:02:13 AM
+ *  Author: miro
+ */ 
+
+#include "bit_math.h"
+#include "std_types.h"
+#define F_CPU 16000000UL
+#include <util/delay.h>
+#include "DIO_INTERFACE.h"
+
+
+
+
+
+
+void LCD_SEND_COMM(u8 command)
+{
+DIO_SETPINVALUE(PORTB,PIN_1,DIO_LOW);
+DIO_SETPINVALUE(PORTB,PIN_2,DIO_LOW); 
+
+PORTA = (command & 0xf0) | (PORTA & 0x0f);
+
+DIO_SETPINVALUE(PORTB,PIN_3,DIO_HIGH);
+_delay_ms(1);
+DIO_SETPINVALUE(PORTB,PIN_3,DIO_LOW);
+
+DIO_SETPINVALUE(PORTB,PIN_1,DIO_LOW);
+DIO_SETPINVALUE(PORTB,PIN_2,DIO_LOW);
+
+PORTA = (command << 4) | (PORTA & 0x0f);
+
+DIO_SETPINVALUE(PORTB,PIN_3,DIO_HIGH);
+_delay_ms(1);
+DIO_SETPINVALUE(PORTB,PIN_3,DIO_LOW);
+
+}
+
+void LCD_SEND_DATA(u8 data)
+{
+	DIO_SETPINVALUE(PORTB,PIN_1,DIO_HIGH);
+	DIO_SETPINVALUE(PORTB,PIN_2,DIO_LOW);
+
+	PORTA = (data & 0xf0) | (PORTA & 0x0f);
+
+	DIO_SETPINVALUE(PORTB,PIN_3,DIO_HIGH);
+	_delay_ms(1);
+	DIO_SETPINVALUE(PORTB,PIN_3,DIO_LOW);
+	
+	DIO_SETPINVALUE(PORTB,PIN_1,DIO_HIGH);
+	DIO_SETPINVALUE(PORTB,PIN_2,DIO_LOW);
+
+	PORTA = (data << 4) | (PORTA & 0x0f);
+
+	DIO_SETPINVALUE(PORTB,PIN_3,DIO_HIGH);
+	_delay_ms(1);
+	DIO_SETPINVALUE(PORTB,PIN_3,DIO_LOW);
+
+	
+}
+
+
+void LCD_INT()
+{
+ _delay_ms(15);
+ LCD_SEND_COMM(0x28);
+_delay_ms(5);	
+ LCD_SEND_COMM(0x28);
+_delay_us(100);
+ LCD_SEND_COMM(0x28);
+ LCD_SEND_COMM(0x0f);
+ LCD_SEND_COMM(0x01);
+ LCD_SEND_COMM(0x06);
+
+}
